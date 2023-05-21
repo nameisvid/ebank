@@ -1,0 +1,8 @@
+#!/bin/bash
+
+url="https://www.amfiindia.com/spages/NAVAll.txt"
+csv_file="scheme_data.csv"
+
+curl -s "$url" | awk -F';' 'NR>1 {print $4 "," $6}' > "$csv_file"
+
+echo "Extraction complete. Data saved in scheme_data.csv"
